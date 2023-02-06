@@ -123,6 +123,7 @@ p span {
 .main__page-background {
   position: absolute;
   top: 0;
+  right: 0;
   z-index: -1;
 }
 
@@ -214,6 +215,7 @@ body {
 .wrapper {
   max-width: 1440px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 ._cont {
