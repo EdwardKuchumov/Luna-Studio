@@ -29,6 +29,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 body{
     font-family: Montserrat;
     background: #37167A;
+    color: #FFFFFF;
 }
 .hidden{
     opacity: 0;
@@ -36,17 +37,22 @@ body{
 .hiddentop{
     top: -1000px;
 }
+.hiddenbottom{
+    bottom: -200px;
+}
 .wrapper {
     max-width: 1440px;
     margin: 0 auto;
     overflow: hidden;
+    
 }
 .container {
+    
 }
 ._cont{
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 10px;
+    
 }
 .header {
     position: fixed;
@@ -65,6 +71,7 @@ body{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-left: 10px;
     }
 
     // .header__logo-block
@@ -179,13 +186,92 @@ body{
     .header__list{
         gap: 24px;
     }
+    .main__main-page-bottom-block{
+        display: block;
+    }
+    .main__main-page-bottom-arrow{
+        display: none;
+    }
+    .main__main-page-play-button{
+        top: -10px;
+        right: 83px;
+    }
+    .main__main-page-title{
+        font-size: 57px;
+        padding-top: 100px;
+    }
+    .main__main-page-bottom-text{
+        font-size: 20px;
+    }
+    .main__main-page-bottom-arrow-min{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+    .main__main-page-block{
+        padding: 170px 50px 0 50px;
+    }
+    p span {
+        transform-origin: 0 80px;
+        top: -28px;
+        font-size: 18px;
+    }
+    .main__main-page-text-play{
+        width: 100px;
+        height: 100px;
+    }
+    .main__main-page-play {
+        top: 14px;
+        right: -79px;
+    }
+    .main__main-page-play svg{
+        width: 42px;
+    }
+}
+@media (max-width: 780px){
+    .main__advantage-flex-block{
+        max-width: 372px;
+        overflow: hidden;
+        margin: 0 auto;
+        
+    }
+    .main__advantage-item{
+        flex-wrap: nowrap;
+        overflow: scroll;
+        justify-content: start;
+    }
+    .main__advantage-element{
+        min-width: 372px;
+        
+    }
+    .main__advantage-content-block{
+  
+    }
 }
 @media (max-width: 622px){
     .header__button,
     .header__item-sousety-block{
         display: none;
     }
-    
+    .main__main-page-title{
+        font-size: 24px;
+    }
+    .main__main-page-bottom-arrow-text,
+    .main__main-page-bottom-text{
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .main__main-page-logotype-link{
+        width: 100%;
+        margin-left: -13px;
+    }
+    .main__main-page-block{
+        padding: 170px 20px 0 20px;
+    }
+    .main__main-page-play-button{
+        margin-right: 40px;
+    }
+
 }
 
 
