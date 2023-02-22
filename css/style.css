@@ -184,6 +184,10 @@ p span {
   flex-wrap: wrap;
   gap: 23px;
   padding-top: 125px;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: all 1s;
 }
 .main__advantage-element {
   background: rgba(255, 0, 183, 0.46);
@@ -260,6 +264,31 @@ p span {
   position: absolute;
   top: 7%;
   left: 0%;
+}
+
+.main__advantage-circle-block {
+  padding-top: 36px;
+  display: none;
+  justify-content: center;
+  gap: 21px;
+}
+.main__advantage-circle {
+  width: 22px;
+  height: 22px;
+  opacity: 0.5;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+}
+.main__advantage-circle:hover {
+  background: #FF00B7;
+  border: 2px solid #FF00B7;
+  box-shadow: 0px 4px 17px #FF00B7;
+}
+
+.color-circle {
+  background: #FF00B7;
+  border: 2px solid #FF00B7;
+  box-shadow: 0px 4px 17px #FF00B7;
 }
 
 * {
@@ -358,6 +387,11 @@ body {
   overflow: hidden;
 }
 
+.container {
+  position: relative;
+  top: 0;
+}
+
 ._cont {
   max-width: 1200px;
   margin: 0 auto;
@@ -451,6 +485,68 @@ body {
   transition: all 0.5s;
 }
 
+.header__burger-burger {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  height: 100vh;
+  background: rgba(105, 62, 180, 0.35);
+  box-shadow: 0px 4px 73px rgba(9, 0, 6, 0.31);
+  -webkit-backdrop-filter: blur(19.2277px);
+          backdrop-filter: blur(19.2277px);
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: end;
+  transition: all 1s;
+}
+.header__burger-block {
+  width: 596px;
+  background: rgba(105, 62, 180, 0.35);
+  box-shadow: 0px 4px 73px rgba(9, 0, 6, 0.31);
+  -webkit-backdrop-filter: blur(19.2277px);
+          backdrop-filter: blur(19.2277px);
+  position: relative;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 55px;
+  opacity: 1;
+}
+.header__burger-close {
+  text-align: right;
+}
+.header__burger-close svg:hover {
+  filter: invert(0.8);
+}
+.header__burger-item {
+  padding-top: 20px;
+}
+.header__burger-item-link {
+  color: inherit;
+  font-family: "Poiret One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 35px;
+  color: #FFFFFF;
+}
+.header__burger-item-link:hover {
+  color: #FF00B7;
+}
+.header__item-sousety-block {
+  padding-top: 55px;
+}
+.header__button {
+  margin-top: 35px;
+}
+
+.hidden {
+  visibility: hidden;
+  right: -1000px;
+}
+
 @media (max-width: 922px) {
   .header__city {
     display: none;
@@ -508,11 +604,14 @@ body {
   }
   .main__advantage-item {
     flex-wrap: nowrap;
-    overflow: scroll;
     justify-content: start;
+    gap: 0;
   }
   .main__advantage-element {
     min-width: 372px;
+  }
+  .main__advantage-circle-block {
+    display: flex;
   }
 }
 @media (max-width: 622px) {
