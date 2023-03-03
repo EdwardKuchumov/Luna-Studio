@@ -575,7 +575,7 @@ const label2 = numberInputNew.previousElementSibling
 const label3 = emailInputNew.previousElementSibling
 const label4 = comentInputNew.previousElementSibling
 
-console.log(label1)
+
 subButton.addEventListener('click', function(){
   if (nameInputNew.value.length <= 3){
     label1.style.visibility = 'visible'
@@ -598,5 +598,80 @@ subButton.addEventListener('click', function(){
     label4.style.visibility = 'hidden'
   }
 })
-console.log(nameInputNew.value)
+
+
+// ---------------------Слайдер на отзывах
+
+const rewiewsItem = document.querySelector('.reviews__slider-block')
+const butSliderLeft = document.querySelector('.reviews__opacity-left')
+const butSliderRight = document.querySelector('.reviews__opacity-right')
+const rewiewsItemMas = document.querySelectorAll('.reviews__slider-item')
+let slidePos = 0
+const itemId1 = document.querySelector('#s1')
+const itemId2 = document.querySelector('#s2')
+const itemId3 = document.querySelector('#s3')
+const itemId4 = document.querySelector('#s4')
+const itemId5 = document.querySelector('#s5')
+const itemId6 = document.querySelector('#s6')
+
+butSliderRight.addEventListener('click', function(){
+    slidePos = slidePos + 367
+    if (slidePos > 1468) {
+      slidePos = 0
+    }
+    rewiewsItem.style.left = -slidePos + 'px'
+    rewiewsItemMas.forEach(function(item){
+      item.classList.remove('hoveritem')
+      if (rewiewsItem.style.left == '367px'){
+        itemId1.classList.add('hoveritem')
+      }
+      if (rewiewsItem.style.left == '0px'){
+        itemId2.classList.add('hoveritem')
+      }
+      if (rewiewsItem.style.left == '-367px'){
+        itemId3.classList.add('hoveritem')
+      }
+      if (rewiewsItem.style.left == '-734px'){
+        itemId4.classList.add('hoveritem')
+      }
+      if (rewiewsItem.style.left == '-1101px'){
+        itemId5.classList.add('hoveritem')
+      }
+      if (rewiewsItem.style.left == '-1468px'){
+        itemId6.classList.add('hoveritem')
+      }
+    })
+})
+butSliderLeft.addEventListener('click', function(){
+  slidePos = slidePos - 367
+  if (slidePos < 0) {
+    slidePos = 367
+    rewiewsItem.style.left = slidePos + 'px'
+  } else {
+    rewiewsItem.style.left = -slidePos + 'px'
+  }
+  rewiewsItemMas.forEach(function(item){
+    item.classList.remove('hoveritem')
+    if (rewiewsItem.style.left == '367px'){
+      itemId1.classList.add('hoveritem')
+    }
+    if (rewiewsItem.style.left == '0px'){
+      itemId2.classList.add('hoveritem')
+    }
+    if (rewiewsItem.style.left == '-367px'){
+      itemId3.classList.add('hoveritem')
+    }
+    if (rewiewsItem.style.left == '-734px'){
+      itemId4.classList.add('hoveritem')
+    }
+    if (rewiewsItem.style.left == '-1101px'){
+      itemId5.classList.add('hoveritem')
+    }
+    if (rewiewsItem.style.left == '-1468px'){
+      itemId6.classList.add('hoveritem')
+    }
+  })
+  
+})
+
 
