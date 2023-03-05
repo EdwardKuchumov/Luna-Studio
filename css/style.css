@@ -794,6 +794,73 @@ label {
   left: 38%;
 }
 
+.quest {
+  padding-top: 200px;
+  position: relative;
+  top: 0;
+  padding-bottom: 65px;
+}
+.quest__subheader {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #FFFFFF;
+  max-width: 681px;
+  margin: 0 auto;
+  padding-top: 58px;
+}
+.quest__block-content {
+  padding-top: 76px;
+}
+.quest__block {
+  background: rgba(146, 0, 175, 0.1);
+  box-shadow: inset 35.8px -35.8px 35.8px rgba(165, 165, 165, 0.1), inset -35.8px 35.8px 35.8px rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(35.8px);
+          backdrop-filter: blur(35.8px);
+  border-radius: 43px;
+  padding: 52px 92px 52px 35px;
+}
+.quest__item {
+  align-items: center;
+  border-bottom: 1px solid #FFFFFF;
+  padding-bottom: 25px;
+  cursor: pointer;
+}
+.quest__text {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #FFFFFF;
+  padding-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.5s;
+}
+.quest__subtext {
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 27px;
+  color: #FFFFFF;
+  opacity: 0.8;
+  padding-top: 19px;
+  transition: all 0.5s;
+}
+.quest__arrow-svg {
+  transition: all 0.5s;
+}
+.quest__back {
+  position: absolute;
+  top: 1%;
+  right: 0%;
+  z-index: -1;
+}
+
+.rotate-ar {
+  transform: rotate(180deg);
+  transition: all 0.5s;
+}
+
 .reviews-continue__header {
   padding-top: 300px;
 }
@@ -1436,6 +1503,44 @@ body {
 .hidden {
   visibility: hidden;
   right: -1000px;
+}
+
+.hid {
+  display: none;
+}
+
+.footer {
+  background: #2E1056;
+  height: 202px;
+}
+.footer__block {
+  height: 100%;
+}
+.footer__nav-block {
+  height: 100%;
+}
+.footer__list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.footer__city {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+.footer__item-sousety-block {
+  display: flex;
+  gap: 16px;
+}
+.footer__button {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: right;
+  color: #FFFFFF;
 }
 
 @media (max-width: 922px) {

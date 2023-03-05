@@ -783,3 +783,15 @@ function removeTextClass() {
     item.classList.remove('rotate-right')
   })
 }
+
+// --------------аккордион блока вопросов
+const questItemAll = document.querySelectorAll('.quest__text')
+const questArrowAll = document.querySelectorAll('.quest__arrow')
+
+for (const questItem of questItemAll){
+  questItem.nextElementSibling.classList.add('hid')
+  questItem.addEventListener('click', function(){
+    this.nextElementSibling.classList.toggle('hid')
+    this.querySelector('.quest__arrow-svg').classList.toggle('rotate-ar')
+  })
+}

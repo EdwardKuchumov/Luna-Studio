@@ -1,0 +1,121 @@
+.main {
+
+    // .main__question-block
+
+    &__question-block {
+    }
+
+    // .main__advantage-title-block
+
+    &__advantage-title-block {
+    }
+
+    // .main__advantage-title
+
+    &__advantage-title {
+    }
+
+    // .main__advantage-title-absolute
+
+    &__advantage-title-absolute {
+    }
+}
+.quest {
+    padding-top: 200px;
+    position: relative;
+    top: 0;
+    padding-bottom: 65px;
+
+    // .quest__subheader
+
+    &__subheader {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+        text-align: center;
+        color: #FFFFFF;
+        max-width: 681px;
+        margin: 0 auto;
+        padding-top: 58px;
+    }
+
+    // .quest__block-content
+
+    &__block-content {
+        padding-top: 76px;
+    }
+
+    // .quest__block
+
+    &__block {
+        background: rgba(146, 0, 175, 0.1);
+        box-shadow: inset 35.8px -35.8px 35.8px rgba(165, 165, 165, 0.1), inset -35.8px 35.8px 35.8px rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(35.8px);
+        border-radius: 43px;
+        padding: 52px 92px 52px 35px;
+    }
+
+    // .quest__item
+
+    &__item {
+
+        align-items: center;
+        border-bottom: 1px solid #FFFFFF;
+        padding-bottom: 25px;
+        cursor: pointer;
+    }
+
+    // .quest__text-block
+
+    &__text-block {
+
+    }
+
+    // .quest__text
+
+    &__text {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+        color: #FFFFFF;
+        padding-top: 26px;
+        display: flex;
+        justify-content: space-between;
+        transition: all 0.5s;
+    }
+
+    // .quest__subtext
+
+    &__subtext {
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 27px;
+        color: #FFFFFF;
+        opacity: 0.8;
+        padding-top: 19px;
+        transition: all 0.5s;
+    }
+
+    // .quest__arrow-svg
+
+    &__arrow-svg {
+        transition: all 0.5s;
+        
+    }
+
+    // .quest__svg
+
+    &__svg {
+        
+    }
+    &__back{
+        position: absolute;
+        top: 1%;
+        right: 0%;
+        z-index: -1;
+    }
+}
+.rotate-ar{
+    transform: rotate(180deg);
+    transition: all 0.5s;
+}
