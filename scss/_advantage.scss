@@ -39,7 +39,8 @@
     &__advantage-title-absolute {
         position: absolute;
         top: -88px;
-        left: 8%;
+        left: 50%;
+        transform: translate(-50%, 0%);
         font-weight: 300;
         font-size: 150px;
         line-height: 183px;

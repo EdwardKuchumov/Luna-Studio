@@ -660,6 +660,7 @@ butSliderLeft.addEventListener('click', function(){
     }
     if (rewiewsItem.style.left == '-367px'){
       itemId3.classList.add('hoveritem')
+
     }
     if (rewiewsItem.style.left == '-734px'){
       itemId4.classList.add('hoveritem')
@@ -674,4 +675,111 @@ butSliderLeft.addEventListener('click', function(){
   
 })
 
+// ---------------------Слайдер на отзывах2
 
+const rewiewsItemC = document.querySelector('.reviews-continue__slider-block')
+const butSliderLeftC = document.querySelector('.reviews-continue__opacity-left')
+const butSliderRightC = document.querySelector('.reviews-continue__opacity-right')
+const rewiewsItemMasC = document.querySelectorAll('.reviews-continue__slider-item')
+let slidePosC = 0
+const itemId1C = document.querySelector('#ss1')
+const itemId2C = document.querySelector('#ss2')
+const itemId3C = document.querySelector('#ss3')
+const itemId4C = document.querySelector('#ss4')
+const itemId5C = document.querySelector('#ss5')
+const itemId6C = document.querySelector('#ss6')
+const textItemMass = document.querySelectorAll('.reviews-continue__text')
+const itemId1Ct = document.querySelector('#st1')
+const itemId2Ct = document.querySelector('#st2')
+const itemId3Ct = document.querySelector('#st3')
+const itemId4Ct = document.querySelector('#st4')
+const itemId5Ct = document.querySelector('#st5')
+const itemId6Ct = document.querySelector('#st6')
+butSliderRightC.addEventListener('click', function(){
+    slidePosC = slidePosC + 367
+    if (slidePosC > 1468) {
+      slidePosC = 0
+    }
+    rewiewsItemC.style.left = -slidePosC + 'px'
+    rewiewsItemMasC.forEach(function(item){
+      item.classList.remove('hoveritem')
+      removeTextClass()
+      if (rewiewsItemC.style.left == '367px'){
+        itemId1C.classList.add('hoveritem')
+        itemId2Ct.classList.add('rotate-left')
+      }
+      if (rewiewsItemC.style.left == '0px'){
+        itemId2C.classList.add('hoveritem')
+        itemId1Ct.classList.add('rotate-right')
+        itemId3Ct.classList.add('rotate-left')
+      }
+      if (rewiewsItemC.style.left == '-367px'){
+        itemId3C.classList.add('hoveritem')
+        itemId4Ct.classList.add('rotate-left')
+        itemId2Ct.classList.add('rotate-right')
+      }
+      if (rewiewsItemC.style.left == '-734px'){
+        itemId4C.classList.add('hoveritem')
+        itemId3Ct.classList.add('rotate-right')
+        itemId5Ct.classList.add('rotate-left')
+      }
+      if (rewiewsItemC.style.left == '-1101px'){
+        itemId5C.classList.add('hoveritem')
+        itemId4Ct.classList.add('rotate-right')
+        itemId6Ct.classList.add('rotate-left')
+
+      }
+      if (rewiewsItemC.style.left == '-1468px'){
+        itemId6C.classList.add('hoveritem')
+        itemId5Ct.classList.add('rotate-right')
+      }
+    })
+})
+butSliderLeftC.addEventListener('click', function(){
+  slidePosC = slidePosC - 367
+  if (slidePosC < 0) {
+    slidePosC = 367
+    rewiewsItemC.style.left = slidePosC + 'px'
+  } else {
+    rewiewsItemC.style.left = -slidePosC + 'px'
+  }
+  rewiewsItemMasC.forEach(function(item){
+    item.classList.remove('hoveritem')
+    removeTextClass()
+    if (rewiewsItemC.style.left == '367px'){
+      itemId1C.classList.add('hoveritem')
+      itemId2Ct.classList.add('rotate-left')
+    }
+    if (rewiewsItemC.style.left == '0px'){
+      itemId2C.classList.add('hoveritem')
+      itemId1Ct.classList.add('rotate-right')
+      itemId3Ct.classList.add('rotate-left')
+    }
+    if (rewiewsItemC.style.left == '-367px'){
+      itemId3C.classList.add('hoveritem')
+      itemId4Ct.classList.add('rotate-left')
+      itemId2Ct.classList.add('rotate-right')
+    }
+    if (rewiewsItemC.style.left == '-734px'){
+      itemId4C.classList.add('hoveritem')
+      itemId3Ct.classList.add('rotate-right')
+      itemId5Ct.classList.add('rotate-left')
+    }
+    if (rewiewsItemC.style.left == '-1101px'){
+      itemId5C.classList.add('hoveritem')
+      itemId4Ct.classList.add('rotate-right')
+      itemId6Ct.classList.add('rotate-left')
+    }
+    if (rewiewsItemC.style.left == '-1468px'){
+      itemId6C.classList.add('hoveritem')
+      itemId5Ct.classList.add('rotate-right')
+    }
+  })
+  
+})
+function removeTextClass() {
+  textItemMass.forEach(function(item){
+    item.classList.remove('rotate-left')
+    item.classList.remove('rotate-right')
+  })
+}
