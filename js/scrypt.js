@@ -677,11 +677,11 @@ butSliderLeft.addEventListener('click', function(){
 
 // ---------------------Слайдер на отзывах2
 
-const rewiewsItemC = document.querySelector('.reviews-continue__slider-block')
-const butSliderLeftC = document.querySelector('.reviews-continue__opacity-left')
-const butSliderRightC = document.querySelector('.reviews-continue__opacity-right')
-const rewiewsItemMasC = document.querySelectorAll('.reviews-continue__slider-item')
-let slidePosC = 0
+// const rewiewsItemC = document.querySelector('.reviews-continue__slider-block')
+// const butSliderLeftC = document.querySelector('.reviews-continue__opacity-left')
+// const butSliderRightC = document.querySelector('.reviews-continue__opacity-right')
+// const rewiewsItemMasC = document.querySelectorAll('.reviews-continue__slider-item')
+// let slidePosC = 0
 const itemId1C = document.querySelector('#ss1')
 const itemId2C = document.querySelector('#ss2')
 const itemId3C = document.querySelector('#ss3')
@@ -695,94 +695,170 @@ const itemId3Ct = document.querySelector('#st3')
 const itemId4Ct = document.querySelector('#st4')
 const itemId5Ct = document.querySelector('#st5')
 const itemId6Ct = document.querySelector('#st6')
-butSliderRightC.addEventListener('click', function(){
-    slidePosC = slidePosC + 367
-    if (slidePosC > 1468) {
-      slidePosC = 0
-    }
-    rewiewsItemC.style.left = -slidePosC + 'px'
-    rewiewsItemMasC.forEach(function(item){
-      item.classList.remove('hoveritem')
-      removeTextClass()
-      if (rewiewsItemC.style.left == '367px'){
-        itemId1C.classList.add('hoveritem')
-        itemId2Ct.classList.add('rotate-left')
-      }
-      if (rewiewsItemC.style.left == '0px'){
-        itemId2C.classList.add('hoveritem')
-        itemId1Ct.classList.add('rotate-right')
-        itemId3Ct.classList.add('rotate-left')
-      }
-      if (rewiewsItemC.style.left == '-367px'){
-        itemId3C.classList.add('hoveritem')
-        itemId4Ct.classList.add('rotate-left')
-        itemId2Ct.classList.add('rotate-right')
-      }
-      if (rewiewsItemC.style.left == '-734px'){
-        itemId4C.classList.add('hoveritem')
-        itemId3Ct.classList.add('rotate-right')
-        itemId5Ct.classList.add('rotate-left')
-      }
-      if (rewiewsItemC.style.left == '-1101px'){
-        itemId5C.classList.add('hoveritem')
-        itemId4Ct.classList.add('rotate-right')
-        itemId6Ct.classList.add('rotate-left')
+// butSliderRightC.addEventListener('click', function(){
+//     slidePosC = slidePosC + 367
+//     if (slidePosC > 1468) {
+//       slidePosC = 0
+//     }
+//     rewiewsItemC.style.left = -slidePosC + 'px'
+//     rewiewsItemMasC.forEach(function(item){
+//       item.classList.remove('hoveritem')
+//       removeTextClass()
+//       if (rewiewsItemC.style.left == '367px'){
+//         itemId1C.classList.add('hoveritem')
+//         itemId2Ct.classList.add('rotate-left')
+//       }
+//       if (rewiewsItemC.style.left == '0px'){
+//         itemId2C.classList.add('hoveritem')
+//         itemId1Ct.classList.add('rotate-right')
+//         itemId3Ct.classList.add('rotate-left')
+//       }
+//       if (rewiewsItemC.style.left == '-367px'){
+//         itemId3C.classList.add('hoveritem')
+//         itemId4Ct.classList.add('rotate-left')
+//         itemId2Ct.classList.add('rotate-right')
+//       }
+//       if (rewiewsItemC.style.left == '-734px'){
+//         itemId4C.classList.add('hoveritem')
+//         itemId3Ct.classList.add('rotate-right')
+//         itemId5Ct.classList.add('rotate-left')
+//       }
+//       if (rewiewsItemC.style.left == '-1101px'){
+//         itemId5C.classList.add('hoveritem')
+//         itemId4Ct.classList.add('rotate-right')
+//         itemId6Ct.classList.add('rotate-left')
 
-      }
-      if (rewiewsItemC.style.left == '-1468px'){
-        itemId6C.classList.add('hoveritem')
-        itemId5Ct.classList.add('rotate-right')
-      }
-    })
-})
-butSliderLeftC.addEventListener('click', function(){
-  slidePosC = slidePosC - 367
-  if (slidePosC < 0) {
-    slidePosC = 367
-    rewiewsItemC.style.left = slidePosC + 'px'
-  } else {
-    rewiewsItemC.style.left = -slidePosC + 'px'
+//       }
+//       if (rewiewsItemC.style.left == '-1468px'){
+//         itemId6C.classList.add('hoveritem')
+//         itemId5Ct.classList.add('rotate-right')
+//       }
+//     })
+// })
+// butSliderLeftC.addEventListener('click', function(){
+//   slidePosC = slidePosC - 367
+//   if (slidePosC < 0) {
+//     slidePosC = 367
+//     rewiewsItemC.style.left = slidePosC + 'px'
+//   } else {
+//     rewiewsItemC.style.left = -slidePosC + 'px'
+//   }
+//   rewiewsItemMasC.forEach(function(item){
+//     item.classList.remove('hoveritem')
+//     removeTextClass()
+//     if (rewiewsItemC.style.left == '367px'){
+//       itemId1C.classList.add('hoveritem')
+//       itemId2Ct.classList.add('rotate-left')
+//     }
+//     if (rewiewsItemC.style.left == '0px'){
+//       itemId2C.classList.add('hoveritem')
+//       itemId1Ct.classList.add('rotate-right')
+//       itemId3Ct.classList.add('rotate-left')
+//     }
+//     if (rewiewsItemC.style.left == '-367px'){
+//       itemId3C.classList.add('hoveritem')
+//       itemId4Ct.classList.add('rotate-left')
+//       itemId2Ct.classList.add('rotate-right')
+//     }
+//     if (rewiewsItemC.style.left == '-734px'){
+//       itemId4C.classList.add('hoveritem')
+//       itemId3Ct.classList.add('rotate-right')
+//       itemId5Ct.classList.add('rotate-left')
+//     }
+//     if (rewiewsItemC.style.left == '-1101px'){
+//       itemId5C.classList.add('hoveritem')
+//       itemId4Ct.classList.add('rotate-right')
+//       itemId6Ct.classList.add('rotate-left')
+//     }
+//     if (rewiewsItemC.style.left == '-1468px'){
+//       itemId6C.classList.add('hoveritem')
+//       itemId5Ct.classList.add('rotate-right')
+//     }
+//   })
+  
+// })
+// function removeTextClass() {
+//   textItemMass.forEach(function(item){
+//     item.classList.remove('rotate-left')
+//     item.classList.remove('rotate-right')
+//   })
+// }
+const itemAll = document.querySelectorAll('.reviews-continue__slider-item');
+const slideLine = document.querySelector('.reviews-continue__slider-block');
+let count = 0;
+let width;
+
+function init(){
+  width = document.querySelector('.reviews-continue__block').offsetWidth;
+  console.log(width)
+  slideLine.style.width = width*itemAll.length + 'px'
+  itemAll.forEach(function(item){
+    item.style.width = width + 'px'
+    item.style.height = 'auto'
+  })
+  rolSlider()
+
+}
+
+window.addEventListener('resize', init)
+init()
+
+document.querySelector('.reviews-continue__opacity-right').addEventListener('click', function(){
+  count++
+  if (count >= itemAll.length){
+    count = 0
   }
-  rewiewsItemMasC.forEach(function(item){
-    item.classList.remove('hoveritem')
-    removeTextClass()
-    if (rewiewsItemC.style.left == '367px'){
-      itemId1C.classList.add('hoveritem')
-      itemId2Ct.classList.add('rotate-left')
-    }
-    if (rewiewsItemC.style.left == '0px'){
-      itemId2C.classList.add('hoveritem')
+  rolSlider()
+})
+document.querySelector('.reviews-continue__opacity-left').addEventListener('click', function(){
+  count--
+  if (count < 0){
+    count = itemAll.length -1
+  }
+  rolSlider()
+})
+
+function rolSlider(){
+  slideLine.style.transform = 'translate(-' + count * width + 'px)';
+  textItemMass.forEach(function(item){
+    item.classList.remove('rotate-right')
+    item.classList.remove('rotate-left')
+    itemAll.forEach(function(el){
+      el.style.transform = 'translateX(0%)'
+    })
+    let widthb = document.body.offsetWidth
+    if (count == 1){
       itemId1Ct.classList.add('rotate-right')
       itemId3Ct.classList.add('rotate-left')
-    }
-    if (rewiewsItemC.style.left == '-367px'){
-      itemId3C.classList.add('hoveritem')
-      itemId4Ct.classList.add('rotate-left')
+      itemId1C.style.transform = 'translateX(25%)'
+      itemId3C.style.transform = 'translateX(-25%)'
+    } else if (count == 2) {
       itemId2Ct.classList.add('rotate-right')
-    }
-    if (rewiewsItemC.style.left == '-734px'){
-      itemId4C.classList.add('hoveritem')
+      itemId4Ct.classList.add('rotate-left')
+      itemId2C.style.transform = 'translateX(25%)'
+      itemId4C.style.transform = 'translateX(-25%)'
+    } else if (count == 3) {
       itemId3Ct.classList.add('rotate-right')
       itemId5Ct.classList.add('rotate-left')
-    }
-    if (rewiewsItemC.style.left == '-1101px'){
-      itemId5C.classList.add('hoveritem')
+      itemId3C.style.transform = 'translateX(25%)'
+      itemId5C.style.transform = 'translateX(-25%)'
+    } else if (count == 4) {
       itemId4Ct.classList.add('rotate-right')
       itemId6Ct.classList.add('rotate-left')
-    }
-    if (rewiewsItemC.style.left == '-1468px'){
-      itemId6C.classList.add('hoveritem')
+      itemId4C.style.transform = 'translateX(25%)'
+      itemId6C.style.transform = 'translateX(-25%)'
+    } else if (count == 5) {
       itemId5Ct.classList.add('rotate-right')
+      itemId5C.style.transform = 'translateX(25%)'
+    } else if (count == 0) {
+      itemId2Ct.classList.add('rotate-left')
     }
+    
   })
-  
-})
-function removeTextClass() {
-  textItemMass.forEach(function(item){
-    item.classList.remove('rotate-left')
-    item.classList.remove('rotate-right')
-  })
+
 }
+
+
 
 // --------------аккордион блока вопросов
 const questItemAll = document.querySelectorAll('.quest__text')
