@@ -352,6 +352,7 @@ body{
 
     &__block {
         height: 100%;
+        padding: 0 10px;
     }
 
     // .footer__nav-block
@@ -392,8 +393,12 @@ body{
     }
 
     // .footer__item-sousety
-
-    &__item-sousety {
+    &__item-sousety svg{
+        transition: color 0.5s;
+    }
+    &__item-sousety svg:hover {
+        color: #FF00B7;
+        transition: color 0.5s;
     }
 
     // .footer__button
@@ -460,6 +465,9 @@ body{
         display: block;
         padding: 0 10px;
     }
+    .main__main-page-bottom-arrow-text{
+        font-size: 18px;
+    }
     .interview__content-block{
         display: block;
         text-align: center;
@@ -476,7 +484,7 @@ body{
     }
     .history__content-img{
         position: relative;
-
+        right: 0;
     }
     .history__buterfly{
         object-fit: cover;
@@ -595,6 +603,9 @@ body{
             margin-top: 10px;
         }
     }
+    .interview__header{
+        padding-top: 150px;
+    }
     .interview__girl{
         left: -15%;
         transform: scale(-1, 1);
@@ -616,6 +627,91 @@ body{
     }
     .history__ico-text{
         font-size: 14px;
+    }
+    .footer__list{
+        flex-direction: column;
+    }
+    .main__calc-title{
+        font-size: 20px;
+    }
+    .main__calc-text{
+        font-size: 18px;
+    }
+    .main__calc-textr{
+        font-size: 18px;
+    }
+    .main__calc-rub{
+        font-size: 33px;
+    }
+    .main__calc-button-link-lang{
+        font-size: 14px;
+        padding: 14px 19px;
+    }
+    .main__calc-button-link-time{
+        font-size: 14px;
+        padding: 14px 19px;
+    }
+    .main__calc-button-link-week{
+        font-size: 14px;
+        padding: 14px 19px;
+    }
+    .main__advantage-title{
+        font-size: 48px;
+    }
+    .main__advantage-title-absolute{
+        font-size: 60px;
+    }
+    .main__calc-button-botom-link{
+        font-size: 18px;
+        padding: 21px 26px;
+    }
+    .main__calc-block{
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    .main__calc-blocks-cont{
+        padding: 0;
+    }
+    .main__calc-result-block{
+        padding: 0 10px;
+    }
+    .main__calc-subtitle{
+        font-size: 22px;
+    }
+    .main__history-block{
+        padding-top: 150px;
+    }
+    .team__header{
+        padding-top: 150px;
+    }
+    .reviews__header{
+        padding-top: 150px;
+    }
+    .reviews__button-link{
+        font-size: 18px;
+        padding: 21px 30px;
+    }
+    .reviews-continue__header{
+        padding-top: 150px;
+    }
+    .quest__subheader{
+        font-size: 16px;
+    }
+    .quest__text1{
+        font-size: 14px;
+    }
+    .quest__subtext{
+        font-size: 12px;
+        padding-top: 0;
+    }
+    .quest__text{
+        padding-top: 12px;
+    }
+    .quest__item{
+        padding-bottom: 12px;
+    }
+    .quest__block{
+        padding: 16px 14px 26px 16px;
     }
 }
 

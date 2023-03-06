@@ -147,9 +147,14 @@ p span {
     &__main-page-bottom-arrow{
         border: 3px solid #ffffff;
         border-radius: 50%;
-        padding: 20px 60px;
-        margin-right: 45px;
+        // padding: 20px 60px;
+        margin-right: 30px;
         transition: all 0.5s;
+        min-width: 176px;
+        min-height: 176px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     &__main-page-bottom-arrow:hover{
         border: 3px solid #FF00B7;
@@ -176,17 +181,22 @@ p span {
         margin: 0 auto;
     }
 }
-// ---------------------доп трелка
+// ---------------------доп стрелка
 .main__main-page-bottom-arrow-min{
     display: none;
+    padding-top: 36px;
 }
 .main__main-page-bottom-arrow-min div{
     // display: none;
     border: 2px solid #ffffff;
     border-radius: 50%;
-    padding: 10px 37px;
+    // padding: 10px 37px;
     transition: all 0.5s;
-    max-width: 97px;
+    min-width: 121px;
+    min-height: 121px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .main__main-page-bottom-arrow-min svg{
     color: #ffffff;
@@ -198,4 +208,13 @@ p span {
     
     
     z-index: -1;
+}
+.main__main-page-bottom-arrow-min div:hover{
+    border: 3px solid #FF00B7;
+    transition: all 0.5s;
+    cursor: pointer;
+     svg{
+        color: #FF00B7;
+        transition: color 0.5s;
+    }
 }

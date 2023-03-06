@@ -21,10 +21,10 @@
     }
 }
 .quest {
-    padding-top: 200px;
     position: relative;
     top: 0;
-    padding-bottom: 65px;
+    
+    padding: 200px 22px 65px 22px;
 
     // .quest__subheader
 
@@ -63,6 +63,9 @@
         border-bottom: 1px solid #FFFFFF;
         padding-bottom: 25px;
         cursor: pointer;
+    }
+    &__item:last-child{
+        border-bottom: 0px solid #000;
     }
 
     // .quest__text-block

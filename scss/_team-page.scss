@@ -38,7 +38,7 @@
     // .team__text-and-button-block
 
     &__text-and-button-block {
-        width: 38%;
+        width: 45%;
         padding-right: 61px;
     }
 
@@ -136,5 +136,8 @@
         bottom: -7%;
         left: -11%;
         z-index: -1;
+        animation-duration:2s;
+        animation-name: shadow1;
+        animation-iteration-count: infinite;
     }
 }
