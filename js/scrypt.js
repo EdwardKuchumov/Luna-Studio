@@ -602,207 +602,133 @@ subButton.addEventListener('click', function(){
 
 // ---------------------Слайдер на отзывах
 
-const rewiewsItem = document.querySelector('.reviews__slider-block')
-const butSliderLeft = document.querySelector('.reviews__opacity-left')
-const butSliderRight = document.querySelector('.reviews__opacity-right')
-const rewiewsItemMas = document.querySelectorAll('.reviews__slider-item')
-let slidePos = 0
+const rewiewSliderLine = document.querySelector('.reviews__slider-block');
+const rewiewItemAll = document.querySelectorAll('.reviews__slider-item');
+// -------buttons
+const butSliderLeft = document.querySelector('.reviews__opacity-left');
+const butSliderRight = document.querySelector('.reviews__opacity-right');
+const circleItemRew = document.querySelectorAll('.reviews__circle')
+let slidePos = 1;
+let widthS;
+// -------text-cont
 const itemId1 = document.querySelector('#s1')
 const itemId2 = document.querySelector('#s2')
 const itemId3 = document.querySelector('#s3')
 const itemId4 = document.querySelector('#s4')
 const itemId5 = document.querySelector('#s5')
 const itemId6 = document.querySelector('#s6')
+function initRew(){
+  widthS = document.querySelector('.reviews__block').offsetWidth;
+  
+  rewiewSliderLine.style.width = widthS * rewiewItemAll.length + 'px'
+  rewiewItemAll.forEach(function(item){
+    item.style.width = widthS + 'px'
+    item.style.height = 'auto'
+  })
+  rolSliderRew()
+}
+window.addEventListener('resize', initRew);
+initRew();
+function rolSliderRew(){
+  rewiewSliderLine.style.transform = 'translate(-' + slidePos * widthS + 'px)';
+  rewiewItemAll.forEach(function(item){
+    item.classList.remove('visi')
+
+  })
+  if (slidePos == 0){
+    itemId3.classList.add('visi')
+  } else if (slidePos == 1){
+    itemId4.classList.add('visi')
+  } else if (slidePos == 2){
+    itemId5.classList.add('visi')
+    itemId1.classList.add('visi')
+  } else if (slidePos == 3){
+    itemId6.classList.add('visi')
+    itemId2.classList.add('visi')
+  } else if (slidePos == 4){
+    itemId3.classList.add('visi')
+  } else if (slidePos == 5){
+    itemId4.classList.add('visi')
+  }
+
+}
 
 butSliderRight.addEventListener('click', function(){
-    slidePos = slidePos + 367
-    if (slidePos > 1468) {
-      slidePos = 0
-    }
-    rewiewsItem.style.left = -slidePos + 'px'
-    rewiewsItemMas.forEach(function(item){
-      item.classList.remove('hoveritem')
-      if (rewiewsItem.style.left == '367px'){
-        itemId1.classList.add('hoveritem')
-      }
-      if (rewiewsItem.style.left == '0px'){
-        itemId2.classList.add('hoveritem')
-      }
-      if (rewiewsItem.style.left == '-367px'){
-        itemId3.classList.add('hoveritem')
-      }
-      if (rewiewsItem.style.left == '-734px'){
-        itemId4.classList.add('hoveritem')
-      }
-      if (rewiewsItem.style.left == '-1101px'){
-        itemId5.classList.add('hoveritem')
-      }
-      if (rewiewsItem.style.left == '-1468px'){
-        itemId6.classList.add('hoveritem')
-      }
-    })
+  slidePos++
+  if (slidePos >= rewiewItemAll.length){
+    slidePos = 0
+  }
+  rolSliderRew()
+  thisItemHover(slidePos)
+  thisCircleSlideRew(slidePos)
 })
 butSliderLeft.addEventListener('click', function(){
-  slidePos = slidePos - 367
-  if (slidePos < 0) {
-    slidePos = 367
-    rewiewsItem.style.left = slidePos + 'px'
-  } else {
-    rewiewsItem.style.left = -slidePos + 'px'
+  slidePos--
+  if (slidePos < 0){
+    slidePos = rewiewItemAll.length -1
   }
-  rewiewsItemMas.forEach(function(item){
-    item.classList.remove('hoveritem')
-    if (rewiewsItem.style.left == '367px'){
-      itemId1.classList.add('hoveritem')
-    }
-    if (rewiewsItem.style.left == '0px'){
-      itemId2.classList.add('hoveritem')
-    }
-    if (rewiewsItem.style.left == '-367px'){
-      itemId3.classList.add('hoveritem')
-
-    }
-    if (rewiewsItem.style.left == '-734px'){
-      itemId4.classList.add('hoveritem')
-    }
-    if (rewiewsItem.style.left == '-1101px'){
-      itemId5.classList.add('hoveritem')
-    }
-    if (rewiewsItem.style.left == '-1468px'){
-      itemId6.classList.add('hoveritem')
-    }
-  })
-  
+  rolSliderRew()
+  thisItemHover(slidePos)
+  thisCircleSlideRew(slidePos)
 })
 
-// ---------------------Слайдер на отзывах2
+function thisItemHover(index){
+  rewiewItemAll.forEach(function(item){
+    item.classList.remove('hoveritem')
+  })
+  rewiewItemAll[index].classList.add('hoveritem')
 
-// const rewiewsItemC = document.querySelector('.reviews-continue__slider-block')
-// const butSliderLeftC = document.querySelector('.reviews-continue__opacity-left')
-// const butSliderRightC = document.querySelector('.reviews-continue__opacity-right')
-// const rewiewsItemMasC = document.querySelectorAll('.reviews-continue__slider-item')
-// let slidePosC = 0
-const itemId1C = document.querySelector('#ss1')
-const itemId2C = document.querySelector('#ss2')
-const itemId3C = document.querySelector('#ss3')
-const itemId4C = document.querySelector('#ss4')
-const itemId5C = document.querySelector('#ss5')
-const itemId6C = document.querySelector('#ss6')
-const textItemMass = document.querySelectorAll('.reviews-continue__text')
-const itemId1Ct = document.querySelector('#st1')
-const itemId2Ct = document.querySelector('#st2')
-const itemId3Ct = document.querySelector('#st3')
-const itemId4Ct = document.querySelector('#st4')
-const itemId5Ct = document.querySelector('#st5')
-const itemId6Ct = document.querySelector('#st6')
-// butSliderRightC.addEventListener('click', function(){
-//     slidePosC = slidePosC + 367
-//     if (slidePosC > 1468) {
-//       slidePosC = 0
-//     }
-//     rewiewsItemC.style.left = -slidePosC + 'px'
-//     rewiewsItemMasC.forEach(function(item){
-//       item.classList.remove('hoveritem')
-//       removeTextClass()
-//       if (rewiewsItemC.style.left == '367px'){
-//         itemId1C.classList.add('hoveritem')
-//         itemId2Ct.classList.add('rotate-left')
-//       }
-//       if (rewiewsItemC.style.left == '0px'){
-//         itemId2C.classList.add('hoveritem')
-//         itemId1Ct.classList.add('rotate-right')
-//         itemId3Ct.classList.add('rotate-left')
-//       }
-//       if (rewiewsItemC.style.left == '-367px'){
-//         itemId3C.classList.add('hoveritem')
-//         itemId4Ct.classList.add('rotate-left')
-//         itemId2Ct.classList.add('rotate-right')
-//       }
-//       if (rewiewsItemC.style.left == '-734px'){
-//         itemId4C.classList.add('hoveritem')
-//         itemId3Ct.classList.add('rotate-right')
-//         itemId5Ct.classList.add('rotate-left')
-//       }
-//       if (rewiewsItemC.style.left == '-1101px'){
-//         itemId5C.classList.add('hoveritem')
-//         itemId4Ct.classList.add('rotate-right')
-//         itemId6Ct.classList.add('rotate-left')
+}
+function thisCircleSlideRew(index){
+  circleItemRew.forEach(function(item){
+    item.classList.remove('color-circle')
+  })
+  circleItemRew[index].classList.add('color-circle')
+}
+circleItemRew.forEach(function(el, index){
+  el.addEventListener('click', function(){
+    slidePos = index;
+    rolSliderRew()
+    thisItemHover(slidePos)
+    thisCircleSlideRew(slidePos)
+  })
+})
 
-//       }
-//       if (rewiewsItemC.style.left == '-1468px'){
-//         itemId6C.classList.add('hoveritem')
-//         itemId5Ct.classList.add('rotate-right')
-//       }
-//     })
-// })
-// butSliderLeftC.addEventListener('click', function(){
-//   slidePosC = slidePosC - 367
-//   if (slidePosC < 0) {
-//     slidePosC = 367
-//     rewiewsItemC.style.left = slidePosC + 'px'
-//   } else {
-//     rewiewsItemC.style.left = -slidePosC + 'px'
-//   }
-//   rewiewsItemMasC.forEach(function(item){
-//     item.classList.remove('hoveritem')
-//     removeTextClass()
-//     if (rewiewsItemC.style.left == '367px'){
-//       itemId1C.classList.add('hoveritem')
-//       itemId2Ct.classList.add('rotate-left')
-//     }
-//     if (rewiewsItemC.style.left == '0px'){
-//       itemId2C.classList.add('hoveritem')
-//       itemId1Ct.classList.add('rotate-right')
-//       itemId3Ct.classList.add('rotate-left')
-//     }
-//     if (rewiewsItemC.style.left == '-367px'){
-//       itemId3C.classList.add('hoveritem')
-//       itemId4Ct.classList.add('rotate-left')
-//       itemId2Ct.classList.add('rotate-right')
-//     }
-//     if (rewiewsItemC.style.left == '-734px'){
-//       itemId4C.classList.add('hoveritem')
-//       itemId3Ct.classList.add('rotate-right')
-//       itemId5Ct.classList.add('rotate-left')
-//     }
-//     if (rewiewsItemC.style.left == '-1101px'){
-//       itemId5C.classList.add('hoveritem')
-//       itemId4Ct.classList.add('rotate-right')
-//       itemId6Ct.classList.add('rotate-left')
-//     }
-//     if (rewiewsItemC.style.left == '-1468px'){
-//       itemId6C.classList.add('hoveritem')
-//       itemId5Ct.classList.add('rotate-right')
-//     }
-//   })
-  
-// })
-// function removeTextClass() {
-//   textItemMass.forEach(function(item){
-//     item.classList.remove('rotate-left')
-//     item.classList.remove('rotate-right')
-//   })
-// }
+// ----------------------------------------------------------------------------------------------Слайдер на отзывах2
+
+const itemId1C = document.querySelector('#ss1');
+const itemId2C = document.querySelector('#ss2');
+const itemId3C = document.querySelector('#ss3');
+const itemId4C = document.querySelector('#ss4');
+const itemId5C = document.querySelector('#ss5');
+const itemId6C = document.querySelector('#ss6');
+const textItemMass = document.querySelectorAll('.reviews-continue__text');
+const itemId1Ct = document.querySelector('#st1');
+const itemId2Ct = document.querySelector('#st2');
+const itemId3Ct = document.querySelector('#st3');
+const itemId4Ct = document.querySelector('#st4');
+const itemId5Ct = document.querySelector('#st5');
+const itemId6Ct = document.querySelector('#st6');
+
 const itemAll = document.querySelectorAll('.reviews-continue__slider-item');
 const slideLine = document.querySelector('.reviews-continue__slider-block');
-let count = 0;
+let count = 1;
 let width;
 const circleItem = document.querySelectorAll('.reviews-continue__circle')
 
 function init(){
   width = document.querySelector('.reviews-continue__block').offsetWidth;
-  console.log(width)
+  
   slideLine.style.width = width*itemAll.length + 'px'
   itemAll.forEach(function(item){
     item.style.width = width + 'px'
     item.style.height = 'auto'
   })
   rolSlider()
-  
 }
 
-window.addEventListener('resize', init)
-init()
+window.addEventListener('resize', init);
+init();
 
 document.querySelector('.reviews-continue__opacity-right').addEventListener('click', function(){
   count++
@@ -877,13 +803,13 @@ circleItem.forEach(function(el, index){
 
 
 // --------------аккордион блока вопросов
-const questItemAll = document.querySelectorAll('.quest__text')
-const questArrowAll = document.querySelectorAll('.quest__arrow')
+const questItemAll = document.querySelectorAll('.quest__text');
+const questArrowAll = document.querySelectorAll('.quest__arrow');
 
 for (const questItem of questItemAll){
-  questItem.nextElementSibling.classList.add('hid')
+  questItem.nextElementSibling.classList.add('hid');
   questItem.addEventListener('click', function(){
-    this.nextElementSibling.classList.toggle('hid')
-    this.querySelector('.quest__arrow-svg').classList.toggle('rotate-ar')
+    this.nextElementSibling.classList.toggle('hid');
+    this.querySelector('.quest__arrow-svg').classList.toggle('rotate-ar');
   })
 }

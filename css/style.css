@@ -1047,14 +1047,13 @@ label {
 .reviews__block {
   position: relative;
   top: 0;
-  max-width: 1100px;
+  max-width: 30%;
   margin: 0 auto;
-  overflow: hidden;
 }
 .reviews__opacity-left {
   position: absolute;
   top: 18%;
-  left: 0%;
+  left: -100%;
   width: 367px;
   height: 530px;
   background-color: rgba(165, 165, 165, 0);
@@ -1065,7 +1064,7 @@ label {
 .reviews__opacity-right {
   position: absolute;
   top: 18%;
-  right: 0%;
+  right: -100%;
   width: 367px;
   height: 530px;
   background-color: rgba(165, 165, 165, 0);
@@ -1092,7 +1091,7 @@ label {
           backdrop-filter: blur(35.8px);
   border-radius: 43px;
   padding: 0 32px;
-  min-width: 367px;
+  transition: all 1s;
   position: relative;
   top: 0;
   left: 0;
@@ -1154,11 +1153,34 @@ label {
   box-shadow: 0px 4px 50px #3E06B4;
   border-radius: 31px;
 }
+.reviews__circle-block {
+  padding-top: 36px;
+  display: none;
+  justify-content: center;
+  gap: 21px;
+  padding-bottom: 55px;
+}
+.reviews__circle {
+  width: 22px;
+  height: 22px;
+  opacity: 0.5;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+}
+.reviews__circle:hover {
+  background: #FF00B7;
+  border: 2px solid #FF00B7;
+  box-shadow: 0px 4px 17px #FF00B7;
+}
 
 .hoveritem {
   transform: scale(1.2);
   z-index: 20;
   transition: all 1s;
+}
+
+.visi {
+  opacity: 0;
 }
 
 .team__header {
@@ -1746,6 +1768,18 @@ body {
   .reviews-continue__circle-block {
     display: flex;
   }
+  .reviews__circle-block {
+    display: flex;
+  }
+  .reviews__block {
+    max-width: 75%;
+  }
+  .reviews__opacity-left {
+    left: 0%;
+  }
+  .reviews__opacity-right {
+    right: 0%;
+  }
 }
 @media (max-width: 780px) {
   .main__advantage-flex-block {
@@ -1943,5 +1977,14 @@ body {
   .reviews-continue__text {
     max-width: 100%;
     min-width: auto;
+  }
+  .reviews__text {
+    font-size: 16px;
+  }
+  .reviews__opacity-left {
+    width: 50%;
+  }
+  .reviews__opacity-right {
+    width: 50%;
   }
 }

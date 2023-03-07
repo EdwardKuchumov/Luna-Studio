@@ -550,6 +550,18 @@ body{
     .reviews-continue__circle-block{
         display: flex;
     }
+    .reviews__circle-block{
+        display: flex;
+    }
+    .reviews__block{
+        max-width: 75%;
+    }
+    .reviews__opacity-left{
+        left: 0%;
+    }
+    .reviews__opacity-right{
+        right: 0%;
+    }
 }
 @media (max-width: 780px){
     .main__advantage-flex-block{
@@ -752,6 +764,15 @@ body{
     .reviews-continue__text{
         max-width: 100%;
         min-width: auto;
+    }
+    .reviews__text{
+        font-size: 16px;
+    }
+    .reviews__opacity-left{
+        width: 50%;
+    }
+    .reviews__opacity-right{
+        width: 50%;
     }
 }
 
