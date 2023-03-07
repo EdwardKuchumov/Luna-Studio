@@ -165,6 +165,10 @@ p span {
   transition: color 0.5s;
 }
 
+.bbinter-desktop {
+  padding-left: 150px;
+}
+
 .main__advantage-block {
   position: relative;
   bottom: 0;
@@ -1282,6 +1286,7 @@ html, body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
 }
 
 input, button, textarea {
