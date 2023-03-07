@@ -14,7 +14,7 @@
 :focus,:active{outline: none;}
 a:focus,a:active{outline: none;}
 nav,footer,header,aside{display: block;}
-html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color: transparent;}
 input,button,textarea{font-family:inherit;}
 input::-ms-clear{display: none;}
 button{cursor: pointer;}
@@ -30,7 +30,7 @@ body{
     font-family: Montserrat;
     background: #37167A;
     color: #FFFFFF;
-
+    
 }
 .hidden{
     opacity: 0;
@@ -73,7 +73,7 @@ body{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-left: 10px;
+        padding-left: 15px;
     }
 
     // .header__logo-block
@@ -172,6 +172,7 @@ body{
     // .header__burger-img
     &__burger-img{
         padding-top: 7px;
+        border-radius: 10%;
         transition: all 0.5s;
     }
     &__burger-img:hover {
@@ -436,7 +437,7 @@ body{
     }
     .main__main-page-title{
         font-size: 57px;
-        padding-top: 100px;
+        padding-top: 140px;
     }
     .main__main-page-bottom-text{
         font-size: 20px;
@@ -445,6 +446,7 @@ body{
         display: flex;
         justify-content: end;
         align-items: center;
+        padding-right: 5px;
     }
     .main__main-page-block{
         padding: 170px 50px 0 50px;
@@ -575,6 +577,12 @@ body{
     }
 }
 @media (max-width: 622px){
+    .main__page-background{
+        top: -15%;
+    }
+    .main__advantage-block{
+        padding-top: 150px;
+    }
     .header__button,
     .header__item-sousety-block{
         display: none;
@@ -625,7 +633,10 @@ body{
         }
     }
     .interview__header{
-        padding-top: 150px;
+        padding-top: 100px;
+    }
+    .interview__content-block{
+        padding-top: 30px;
     }
     .interview__girl{
         left: -15%;
@@ -634,14 +645,18 @@ body{
     }
     .interview__text{
         font-size: 16px;
-        text-align: center;
-        max-width: 318px;
+        text-align: left;
+        padding-bottom: 25px;
     }
     .interview__number{
         font-size: 24px;
+        padding-bottom: 25px;
     }
     .interview__button{
         font-size: 18px;
+    }
+    .history__content-block{
+        padding-top: 30px;
     }
     .history__text{
         font-size: 16px;
@@ -706,7 +721,7 @@ body{
         padding-top: 150px;
     }
     .reviews__header{
-        padding-top: 150px;
+        padding-top: 100px;
     }
     .reviews__button-link{
         font-size: 18px;

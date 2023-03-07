@@ -158,12 +158,21 @@
 
     &__button-block {
         text-align: center;
-        padding-top: 103px;
+        
+    }
+    &__button-block:hover{
+        transition: all 0.5s;
+        .reviews__button-link{
+            color: #FF00B7;
+            box-shadow: 0px 4px 26px #2c0e6d;
+            transition: all 0.5s;
+        }
     }
 
     // .reviews__button-link
 
     &__button-link {
+        transition: all 0.5s;
         font-weight: 600;
         font-size: 28px;
         line-height: 34px;
