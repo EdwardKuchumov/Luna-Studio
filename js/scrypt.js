@@ -787,6 +787,7 @@ const itemAll = document.querySelectorAll('.reviews-continue__slider-item');
 const slideLine = document.querySelector('.reviews-continue__slider-block');
 let count = 0;
 let width;
+const circleItem = document.querySelectorAll('.reviews-continue__circle')
 
 function init(){
   width = document.querySelector('.reviews-continue__block').offsetWidth;
@@ -797,7 +798,7 @@ function init(){
     item.style.height = 'auto'
   })
   rolSlider()
-
+  
 }
 
 window.addEventListener('resize', init)
@@ -809,6 +810,7 @@ document.querySelector('.reviews-continue__opacity-right').addEventListener('cli
     count = 0
   }
   rolSlider()
+  thisCircleSlide(count)
 })
 document.querySelector('.reviews-continue__opacity-left').addEventListener('click', function(){
   count--
@@ -816,6 +818,7 @@ document.querySelector('.reviews-continue__opacity-left').addEventListener('clic
     count = itemAll.length -1
   }
   rolSlider()
+  thisCircleSlide(count)
 })
 
 function rolSlider(){
@@ -857,7 +860,19 @@ function rolSlider(){
   })
 
 }
-
+function thisCircleSlide(index){
+  circleItem.forEach(function(item){
+    item.classList.remove('color-circle')
+  })
+  circleItem[index].classList.add('color-circle')
+}
+circleItem.forEach(function(el, index){
+  el.addEventListener('click', function(){
+    count = index;
+    rolSlider()
+    thisCircleSlide(count)
+  })
+})
 
 
 // --------------аккордион блока вопросов
