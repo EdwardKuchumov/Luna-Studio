@@ -536,8 +536,14 @@ body{
     }
     .reviews-continue__text{
         font-size: 16px;
-        width: 50%;
+        
+        
+        max-width: 65%;
         margin: 0 auto;
+        padding-top: 50px;
+    }
+    .rewiews-continue__text-cont{
+        
     }
     .reviews-continue__circle-block{
         display: flex;
@@ -727,6 +733,10 @@ body{
     }
     .quest__block{
         padding: 16px 14px 26px 16px;
+    }
+    .reviews-continue__text{
+        max-width: 100%;
+        min-width: auto;
     }
 }
 

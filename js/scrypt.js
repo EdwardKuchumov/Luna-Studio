@@ -855,6 +855,7 @@ function rolSlider(){
       itemId5C.style.transform = 'translateX(25%)'
     } else if (count == 0) {
       itemId2Ct.classList.add('rotate-left')
+      itemId2C.style.transform = 'translateX(-25%)'
     }
     
   })
