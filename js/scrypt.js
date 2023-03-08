@@ -17,34 +17,62 @@ text.innerHTML = text.innerText.split("").map((letter, i) =>
 )
 .join("");
 
-//  -------------------------------переключение в слайдере
-const itemSlider = document.querySelector('.main__advantage-item');
-const itemCircle = document.querySelectorAll('.main__advantage-circle');
-// 395-790-1185-1580-1975
-const nextSlide = () => {
-    const position = 372;
-    if (position < (itemSlider.length - 1) * 372) {
-        position += 372
-    } else {
-        position = 0
-    }
-    itemSlider.style.left = -position + 'px'
-}
-itemCircle.forEach((item, index) => {
-    item.addEventListener('click', function(){
-        const position1 = 372 * index;
-        itemSlider.style.left = -position1 + 'px'
-        dotIndex = index
-        thisSlide(dotIndex)
-    })
-})
-const thisSlide = (index) => {
-    for (let dot of itemCircle) {
-        dot.classList.remove('color-circle')
+//  -------------------------------переключение в слайдере1
+const itemAdvantageSliderLine = document.querySelector('.main__advantage-item-slide');
+// const itemAdvantageSliderCont = document.querySelector('.main__advantage-flex-block-slide');
+const itemAdvantageAll = document.querySelectorAll('.main__advantage-element-slide');
 
-    }
-    itemCircle[index].classList.add('color-circle')
+const itemAdvantageCircle = document.querySelectorAll('.main__advantage-circle');
+
+let slidePosAdv = 0;
+let widthAdv;
+// -------text-cont
+
+function initRewAdv(){
+  widthAdv = document.querySelector('.main__advantage-flex-block-slide').offsetWidth;
+  
+  itemAdvantageSliderLine.style.width = widthAdv * itemAdvantageAll.length + 'px'
+  itemAdvantageAll.forEach(function(item){
+    item.style.width = widthAdv + 'px'
+    item.style.height = 'auto'
+  })
+  rolSliderRewAdv()
 }
+
+window.addEventListener('resize', initRewAdv);
+initRewAdv();
+
+function rolSliderRewAdv(){
+  itemAdvantageSliderLine.style.transform = 'translate(-' + slidePosAdv * widthAdv + 'px)';
+  itemAdvantageAll.forEach(function(item){
+    item.classList.remove('visi')
+
+  })
+
+}
+
+// let widthb = document.body.offsetWidth
+
+function thisCircleSlideRewAdv(index){
+  itemAdvantageCircle.forEach(function(item){
+    item.classList.remove('color-circle')
+  })
+  itemAdvantageCircle[index].classList.add('color-circle')
+}
+itemAdvantageCircle.forEach(function(el, index){
+  el.addEventListener('click', function(){
+    slidePosAdv = index;
+    rolSliderRewAdv()
+    thisCircleSlideRewAdv(slidePosAdv)
+  })
+})
+
+
+
+
+
+
+
 // --------------------------burger menu
 const burgerMenu = document.querySelector('.burg__burger-burger');
 const burgerButton = document.querySelector('.header__burger-img');
@@ -202,305 +230,6 @@ function treeBlockButton() {
  }
  treeBlockButton()
 
-  // for (const elem of buttonLanguege) {
-  //   elem.addEventListener('click', function() {
-  //     buttonLanguege.forEach(function(el) {
-  //       el.classList.remove('button-active')
-  //     })
-  //     elem.classList.add('button-active')
-  //     if (elem.classList.contains('button-active')){
-  //       if (elem.dataset.but == 'buttonLanguege1'){
-  //         rubValue.innerHTML = num1
-  //         rubValue2.innerHTML = num1 * 4
-  //         rubValue3.innerHTML = num1 * 60
-  //         for (const elem of buttonTime) {
-  //           elem.addEventListener('click', function() {
-  //               buttonTime.forEach(function(el) {
-  //               el.classList.remove('button-active')
-  //             })
-  //             elem.classList.add('button-active')
-  //             if (elem.classList.contains('button-active')){
-  //               if (elem.dataset.butt == 'buttonTime1'){
-  //                 rubValue.innerHTML = num1 + 1
-  //                 rubValue2.innerHTML = num1 * 4 + 1
-  //                 rubValue3.innerHTML = num1 * 60 + 10
-  //                 for (const elem of buttonWeek) {
-  //                   elem.addEventListener('click', function() {
-  //                       buttonWeek.forEach(function(el) {
-  //                       el.classList.remove('button-active')
-  //                     })
-  //                     elem.classList.add('button-active')
-  //                       if (elem.classList.contains('button-active')){
-  //                       if (elem.dataset.butw == 'buttonWeek1'){
-  //                         rubValue.innerHTML = num1 + 10
-  //                         rubValue2.innerHTML = num1 * 4 + 10
-  //                         rubValue3.innerHTML = num1 * 60 + 100
-  //                       } if (elem.dataset.butw == 'buttonWeek2') {
-  //                         rubValue.innerHTML = num1 + 20
-  //                         rubValue2.innerHTML = num1 * 4 + 20
-  //                         rubValue3.innerHTML = num1 * 60 + 200
-  //                       } if (elem.dataset.butw == 'buttonWeek3') {
-  //                         rubValue.innerHTML = num1 + 30
-  //                         rubValue2.innerHTML = num1 * 4 + 30
-  //                         rubValue3.innerHTML = num1 * 60 + 300
-  //                       }
-  //                     }
-  //                   })
-  //                 }
-  //               } if (elem.dataset.butt == 'buttonTime2') {
-  //                 rubValue.innerHTML = num1 + 2
-  //                 rubValue2.innerHTML = num1 * 4 + 2
-  //                 rubValue3.innerHTML = num1 * 60 + 20
-  //                 for (const elem of buttonWeek) {
-  //                   elem.addEventListener('click', function() {
-  //                       buttonWeek.forEach(function(el) {
-  //                       el.classList.remove('button-active')
-  //                     })
-  //                     elem.classList.add('button-active')
-  //                       if (elem.classList.contains('button-active')){
-  //                       if (elem.dataset.butw == 'buttonWeek1'){
-  //                         rubValue.innerHTML = num1 + 10
-  //                         rubValue2.innerHTML = num1 * 4 + 10
-  //                         rubValue3.innerHTML = num1 * 60 + 100
-  //                       } if (elem.dataset.butw == 'buttonWeek2') {
-  //                         rubValue.innerHTML = num1 + 20
-  //                         rubValue2.innerHTML = num1 * 4 + 20
-  //                         rubValue3.innerHTML = num1 * 60 + 200
-  //                       } if (elem.dataset.butw == 'buttonWeek3') {
-  //                         rubValue.innerHTML = num1 + 30
-  //                         rubValue2.innerHTML = num1 * 4 + 30
-  //                         rubValue3.innerHTML = num1 * 60 + 300
-  //                       }
-  //                     }
-  //                   })
-  //                 }
-  //               } if (elem.dataset.butt == 'buttonTime3') {
-  //                 rubValue.innerHTML = num1 + 3
-  //                 rubValue2.innerHTML = num1 * 4 + 3
-  //                 rubValue3.innerHTML = num1 * 60 + 30
-  //                 for (const elem of buttonWeek) {
-  //                   elem.addEventListener('click', function() {
-  //                       buttonWeek.forEach(function(el) {
-  //                       el.classList.remove('button-active')
-  //                     })
-  //                     elem.classList.add('button-active')
-  //                       if (elem.classList.contains('button-active')){
-  //                       if (elem.dataset.butw == 'buttonWeek1'){
-  //                         rubValue.innerHTML = num1 + 10
-  //                         rubValue2.innerHTML = num1 * 4 + 10
-  //                         rubValue3.innerHTML = num1 * 60 + 100
-  //                       } if (elem.dataset.butw == 'buttonWeek2') {
-  //                         rubValue.innerHTML = num1 + 20
-  //                         rubValue2.innerHTML = num1 * 4 + 20
-  //                         rubValue3.innerHTML = num1 * 60 + 200
-  //                       } if (elem.dataset.butw == 'buttonWeek3') {
-  //                         rubValue.innerHTML = num1 + 30
-  //                         rubValue2.innerHTML = num1 * 4 + 30
-  //                         rubValue3.innerHTML = num1 * 60 + 300
-  //                       }
-  //                     }
-  //                   })
-  //                 }
-  //               }
-  //             }
-  //           })
-  //         }
-  //       } if (elem.dataset.but == 'buttonLanguege2') {
-  //         rubValue.innerHTML = num2
-  //         rubValue2.innerHTML = num2 * 4
-  //         rubValue3.innerHTML = num2 * 60
-  //         for (const elem of buttonTime) {
-  //           elem.addEventListener('click', function() {
-  //               buttonTime.forEach(function(el) {
-  //               el.classList.remove('button-active')
-  //             })
-  //             elem.classList.add('button-active')
-  //             if (elem.classList.contains('button-active')){
-  //               if (elem.dataset.butt == 'buttonTime1'){
-  //                 rubValue.innerHTML = num2 + 1
-  //                 rubValue2.innerHTML = num2 * 4 + 1
-  //                 rubValue3.innerHTML = num2 * 60 + 10
-  //                 for (const elem of buttonWeek) {
-  //                   elem.addEventListener('click', function() {
-  //                       buttonWeek.forEach(function(el) {
-  //                       el.classList.remove('button-active')
-  //                     })
-  //                     elem.classList.add('button-active')
-  //                       if (elem.classList.contains('button-active')){
-  //                       if (elem.dataset.butw == 'buttonWeek1'){
-  //                         rubValue.innerHTML = num2 + 10
-  //                         rubValue2.innerHTML = num2 * 4 + 10
-  //                         rubValue3.innerHTML = num2 * 60 + 100
-  //                       } if (elem.dataset.butw == 'buttonWeek2') {
-  //                         rubValue.innerHTML = num2 + 20
-  //                         rubValue2.innerHTML = num2 * 4 + 20
-  //                         rubValue3.innerHTML = num2 * 60 + 200
-  //                       } if (elem.dataset.butw == 'buttonWeek3') {
-  //                         rubValue.innerHTML = num2 + 30
-  //                         rubValue2.innerHTML = num2 * 4 + 30
-  //                         rubValue3.innerHTML = num2 * 60 + 300
-  //                       }
-  //                     }
-  //                   })
-  //                 }
-  //               } if (elem.dataset.butt == 'buttonTime2') {
-  //                 rubValue.innerHTML = num2 + 2
-  //                 rubValue2.innerHTML = num2 * 4 + 2
-  //                 rubValue3.innerHTML = num2 * 60 + 20
-  //                 for (const elem of buttonWeek) {
-  //                   elem.addEventListener('click', function() {
-  //                       buttonWeek.forEach(function(el) {
-  //                       el.classList.remove('button-active')
-  //                     })
-  //                     elem.classList.add('button-active')
-  //                       if (elem.classList.contains('button-active')){
-  //                       if (elem.dataset.butw == 'buttonWeek1'){
-  //                         rubValue.innerHTML = num2 + 10
-  //                         rubValue2.innerHTML = num2 * 4 + 10
-  //                         rubValue3.innerHTML = num2 * 60 + 100
-  //                       } if (elem.dataset.butw == 'buttonWeek2') {
-  //                         rubValue.innerHTML = num2 + 20
-  //                         rubValue2.innerHTML = num2 * 4 + 20
-  //                         rubValue3.innerHTML = num2 * 60 + 200
-  //                       } if (elem.dataset.butw == 'buttonWeek3') {
-  //                         rubValue.innerHTML = num2 + 30
-  //                         rubValue2.innerHTML = num2 * 4 + 30
-  //                         rubValue3.innerHTML = num2 * 60 + 300
-  //                       }
-  //                     }
-  //                   })
-  //                 }
-  //               } if (elem.dataset.butt == 'buttonTime3') {
-  //                 rubValue.innerHTML = num2 + 3
-  //                 rubValue2.innerHTML = num2 * 4 + 3
-  //                 rubValue3.innerHTML = num2 * 60 + 30
-  //                 for (const elem of buttonWeek) {
-  //                   elem.addEventListener('click', function() {
-  //                       buttonWeek.forEach(function(el) {
-  //                       el.classList.remove('button-active')
-  //                     })
-  //                     elem.classList.add('button-active')
-  //                       if (elem.classList.contains('button-active')){
-  //                       if (elem.dataset.butw == 'buttonWeek1'){
-  //                         rubValue.innerHTML = num2 + 10
-  //                         rubValue2.innerHTML = num2 * 4 + 10
-  //                         rubValue3.innerHTML = num2 * 60 + 100
-  //                       } if (elem.dataset.butw == 'buttonWeek2') {
-  //                         rubValue.innerHTML = num2 + 20
-  //                         rubValue2.innerHTML = num2 * 4 + 20
-  //                         rubValue3.innerHTML = num2 * 60 + 200
-  //                       } if (elem.dataset.butw == 'buttonWeek3') {
-  //                         rubValue.innerHTML = num2 + 30
-  //                         rubValue2.innerHTML = num2 * 4 + 30
-  //                         rubValue3.innerHTML = num2 * 60 + 300
-  //                       }
-  //                     }
-  //                   })
-  //                 }
-  //               }
-  //             }
-  //           })
-  //         }
-  //       } if (elem.dataset.but == 'buttonLanguege3') {
-  //         rubValue.innerHTML = num3
-  //         rubValue2.innerHTML = num3 * 4
-  //         rubValue3.innerHTML = num3 * 60
-  //         for (const elem of buttonTime) {
-  //           elem.addEventListener('click', function() {
-  //               buttonTime.forEach(function(el) {
-  //               el.classList.remove('button-active')
-  //             })
-  //             elem.classList.add('button-active')
-  //             if (elem.classList.contains('button-active')){
-  //               if (elem.dataset.butt == 'buttonTime1'){
-  //                 rubValue.innerHTML = num3 + 1
-  //                 rubValue2.innerHTML = num3 * 4 + 1
-  //                 rubValue3.innerHTML = num3 * 60 + 10
-  //                 for (const elem of buttonWeek) {
-  //                   elem.addEventListener('click', function() {
-  //                       buttonWeek.forEach(function(el) {
-  //                       el.classList.remove('button-active')
-  //                     })
-  //                     elem.classList.add('button-active')
-  //                       if (elem.classList.contains('button-active')){
-  //                       if (elem.dataset.butw == 'buttonWeek1'){
-  //                         rubValue.innerHTML = num3 + 10
-  //                         rubValue2.innerHTML = num3 * 4 + 10
-  //                         rubValue3.innerHTML = num3 * 60 + 100
-  //                       } if (elem.dataset.butw == 'buttonWeek2') {
-  //                         rubValue.innerHTML = num3 + 20
-  //                         rubValue2.innerHTML = num3 * 4 + 20
-  //                         rubValue3.innerHTML = num3 * 60 + 200
-  //                       } if (elem.dataset.butw == 'buttonWeek3') {
-  //                         rubValue.innerHTML = num3 + 30
-  //                         rubValue2.innerHTML = num3 * 4 + 30
-  //                         rubValue3.innerHTML = num3 * 60 + 300
-  //                       }
-  //                     }
-  //                   })
-  //                 }
-  //               } if (elem.dataset.butt == 'buttonTime2') {
-  //                 rubValue.innerHTML = num3 + 2
-  //                 rubValue2.innerHTML = num3 * 4 + 2
-  //                 rubValue3.innerHTML = num3 * 60 + 20
-  //                 for (const elem of buttonWeek) {
-  //                   elem.addEventListener('click', function() {
-  //                       buttonWeek.forEach(function(el) {
-  //                       el.classList.remove('button-active')
-  //                     })
-  //                     elem.classList.add('button-active')
-  //                       if (elem.classList.contains('button-active')){
-  //                       if (elem.dataset.butw == 'buttonWeek1'){
-  //                         rubValue.innerHTML = num3 + 10
-  //                         rubValue2.innerHTML = num3 * 4 + 10
-  //                         rubValue3.innerHTML = num3 * 60 + 100
-  //                       } if (elem.dataset.butw == 'buttonWeek2') {
-  //                         rubValue.innerHTML = num3 + 20
-  //                         rubValue2.innerHTML = num3 * 4 + 20
-  //                         rubValue3.innerHTML = num3 * 60 + 200
-  //                       } if (elem.dataset.butw == 'buttonWeek3') {
-  //                         rubValue.innerHTML = num3 + 30
-  //                         rubValue2.innerHTML = num3 * 4 + 30
-  //                         rubValue3.innerHTML = num3 * 60 + 300
-  //                       }
-  //                     }
-  //                   })
-  //                 }
-  //               } if (elem.dataset.butt == 'buttonTime3') {
-  //                 rubValue.innerHTML = num3 + 3
-  //                 rubValue2.innerHTML = num3 * 4 + 3
-  //                 rubValue3.innerHTML = num3 * 60 + 30
-  //                 for (const elem of buttonWeek) {
-  //                   elem.addEventListener('click', function() {
-  //                       buttonWeek.forEach(function(el) {
-  //                       el.classList.remove('button-active')
-  //                     })
-  //                     elem.classList.add('button-active')
-  //                       if (elem.classList.contains('button-active')){
-  //                       if (elem.dataset.butw == 'buttonWeek1'){
-  //                         rubValue.innerHTML = num3 + 10
-  //                         rubValue2.innerHTML = num3 * 4 + 10
-  //                         rubValue3.innerHTML = num3 * 60 + 100
-  //                       } if (elem.dataset.butw == 'buttonWeek2') {
-  //                         rubValue.innerHTML = num3 + 20
-  //                         rubValue2.innerHTML = num3 * 4 + 20
-  //                         rubValue3.innerHTML = num3 * 60 + 200
-  //                       } if (elem.dataset.butw == 'buttonWeek3') {
-  //                         rubValue.innerHTML = num3 + 30
-  //                         rubValue2.innerHTML = num3 * 4 + 30
-  //                         rubValue3.innerHTML = num3 * 60 + 300
-  //                       }
-  //                     }
-  //                   })
-  //                 }
-  //               }
-  //             }
-  //           })
-  //         }
-  //       }
-  //     }
-  //   })
-  // }
 function testFn(){
   num1 += 1000
   if (num1 > 29800){
@@ -679,6 +408,8 @@ function thisItemHover(index){
   rewiewItemAll[index].classList.add('hoveritem')
 
 }
+// let widthb = document.body.offsetWidth
+
 function thisCircleSlideRew(index){
   circleItemRew.forEach(function(item){
     item.classList.remove('color-circle')
@@ -755,7 +486,7 @@ function rolSlider(){
     itemAll.forEach(function(el){
       el.style.transform = 'translateX(0%)'
     })
-    let widthb = document.body.offsetWidth
+    
     if (count == 1){
       itemId1Ct.classList.add('rotate-right')
       itemId3Ct.classList.add('rotate-left')

@@ -587,6 +587,12 @@ body{
     .main__advantage-circle-block{
         display: flex;
     }
+    .main__advantage-flex-block{
+        display: none;
+    }
+    .main__advantage-flex-block-slide{
+        display: block;
+    }
 }
 @media (max-width: 622px){
     .main__page-background{
@@ -594,6 +600,15 @@ body{
     }
     .main__advantage-block{
         padding-top: 150px;
+    }
+    .main__advantage-element-slide{
+        padding: 13px;
+    }
+    .main__advantage-text-item-slide{
+        padding-left: 13px;
+    }
+    .main__advantage-img-element-slide{
+        padding-bottom: 10px;
     }
     .header__button,
     .header__item-sousety-block{
