@@ -58,11 +58,12 @@
     // .quest__item
 
     &__item {
-
+        height: 100%;
         align-items: center;
         border-bottom: 1px solid #FFFFFF;
         padding-bottom: 25px;
         cursor: pointer;
+        transition: all 2s;
     }
     &__item:last-child{
         border-bottom: 0px solid #000;
@@ -71,7 +72,7 @@
     // .quest__text-block
 
     &__text-block {
-
+        
     }
 
     // .quest__text
@@ -119,6 +120,6 @@
     }
 }
 .rotate-ar{
-    transform: rotate(180deg);
+    transform: rotate(540deg);
     transition: all 0.5s;
 }

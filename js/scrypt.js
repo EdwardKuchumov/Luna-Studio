@@ -10,14 +10,14 @@ window.onload = function() {
     
     };
 
-// ---------------------------анимация крежения букв
+// --------------------------------------------------------------анимация крежения букв
 const text = document.querySelector(".text p");
 text.innerHTML = text.innerText.split("").map((letter, i) =>
 `<span style="transform:rotate(${i * 10.5}deg")>${letter}</span>`
 )
 .join("");
 
-//  -------------------------------переключение в слайдере1
+//  ----------------------------------------------------------------переключение в слайдере1
 const itemAdvantageSliderLine = document.querySelector('.main__advantage-item-slide');
 // const itemAdvantageSliderCont = document.querySelector('.main__advantage-flex-block-slide');
 const itemAdvantageAll = document.querySelectorAll('.main__advantage-element-slide');
@@ -67,13 +67,7 @@ itemAdvantageCircle.forEach(function(el, index){
   })
 })
 
-
-
-
-
-
-
-// --------------------------burger menu
+// -------------------------------------------------------------------burger menu
 const burgerMenu = document.querySelector('.burg__burger-burger');
 const burgerButton = document.querySelector('.header__burger-img');
 const burgerHrest = document.querySelector('.burg__burger-close');
@@ -86,7 +80,15 @@ burgerHrest.addEventListener('click', function() {
     burgerMenu.classList.add('hidden')
     navHeader.classList.remove('hidden')
 })
-//---------------------- ------------------калькулятор
+const itemHrefBurg = document.querySelectorAll('a')
+itemHrefBurg.forEach(function(item){
+  item.addEventListener('click', function(){
+    burgerMenu.classList.add('hidden')
+    navHeader.classList.remove('hidden')
+  })
+})
+
+//---------------------- ---------------------- ---------------------- ------------------калькулятор
 
 const buttonLanguege = document.querySelectorAll('.main__calc-button-link-lang');
 const buttonTime = document.querySelectorAll('.main__calc-button-link-time');
@@ -291,7 +293,7 @@ function xNumYear(){
   num3 = num2 * 12
   return num3
 }
-// -------------------------------------------FORMS
+// --------------------------------- --------------------------------FORMS
 const nameForm = document.forms.main
 const subButton = document.querySelector('.interview__button')
 const nameInputNew = nameForm.main1
@@ -329,7 +331,7 @@ subButton.addEventListener('click', function(){
 })
 
 
-// ---------------------Слайдер на отзывах
+// ------------------------- ---------------------- ------------------Слайдер на отзывах
 
 const rewiewSliderLine = document.querySelector('.reviews__slider-block');
 const rewiewItemAll = document.querySelectorAll('.reviews__slider-item');
@@ -533,7 +535,7 @@ circleItem.forEach(function(el, index){
 })
 
 
-// --------------аккордион блока вопросов
+// ------------------ ---------------------- ------------------аккордион блока вопросов
 const questItemAll = document.querySelectorAll('.quest__text');
 const questArrowAll = document.querySelectorAll('.quest__arrow');
 

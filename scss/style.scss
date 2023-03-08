@@ -150,7 +150,9 @@ body{
     }
 
     // .header__button
-
+    &__button a{
+        color: inherit;
+    }
     &__button {
         font-weight: 400;
         font-size: 18px;
@@ -194,7 +196,7 @@ body{
         right: 0%;
         height: 100vh;
         background: rgba(83, 34, 168, 0.55);
-        box-shadow: 0px 4px 73px rgba(9, 0, 6, 0.31);
+        // box-shadow: 0px 4px 73px rgba(9, 0, 6, 0.31);
         backdrop-filter: blur(19.2277px);
         
         width: 100%;
@@ -274,10 +276,15 @@ body{
         padding-top: 54px;
         padding-bottom: 34px;
     }
-    &__item-sousety{
+    &__item-sousety-block a{
+        color: inherit;
         padding-right: 16px;
     }
-    &__item-sousety:nth-last-child(1) {
+    &__item-sousety{
+        padding-right: 16px;
+        color: inherit;
+    }
+    &__item-sousety-block a:nth-last-child(1) {
         padding-right: 0;
     }
     &__item-sousety svg{
@@ -302,7 +309,9 @@ body{
     }
 
     // .burg__button
-
+    &__button a{
+        color: inherit;
+    }
     &__button {
         font-weight: 400;
         font-size: 18px;
@@ -342,7 +351,10 @@ body{
     right: -1000px;
 }
 .hid{
-    display: none;
+    
+    transition: all 0.2s;
+    opacity: 0;
+    height: 0;
 }
 .footer {
     background: #2E1056;
@@ -392,6 +404,9 @@ body{
         display: flex;
         gap: 16px;
     }
+    &__item-sousety-block a{
+        color: inherit;
+    }
 
     // .footer__item-sousety
     &__item-sousety svg{
@@ -416,6 +431,9 @@ body{
     background: #FF00B7;
     border: 2px solid #FF00B7;
     box-shadow: 0px 4px 17px #FF00B7;
+}
+a{
+    color: inherit;
 }
 
 @media (max-width: 922px){

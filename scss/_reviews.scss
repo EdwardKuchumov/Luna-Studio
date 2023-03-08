@@ -163,9 +163,9 @@
         text-align: center;
         
     }
-    &__button-block:hover{
+    &__button-block{
         transition: all 0.5s;
-        .reviews__button-link{
+        .reviews__button-link:hover{
             color: #FF00B7;
             box-shadow: 0px 4px 26px #2c0e6d;
             transition: all 0.5s;
@@ -185,6 +185,9 @@
         background: linear-gradient(180deg, #5300FF 0%, #430DB4 100%);
         box-shadow: 0px 4px 50px #3E06B4;
         border-radius: 31px;
+    }
+    .reviews__button-link a{
+        color: inherit;
     }
 
 
