@@ -97,7 +97,7 @@ getEvent = function() {
 swipeStart = function() {
   let evt = getEvent();
   posInit = posX1 = evt.clientX;
-  console.log(posInit)
+  // console.log(posInit)
   itemAdvantageSliderLine.style.transition = '';
   document.addEventListener('touchmove', swipeAction);
   document.addEventListener('touchend', swipeEnd);
@@ -110,15 +110,16 @@ swipeAction = function() {
     style = itemAdvantageSliderLine.style.transform;
     // считываем трансформацию с помощью регулярного выражения и сразу превращаем в число
     transform = +style.match(trfRegExp)[0];
-    console.log(transform)
+    // console.log(transform)
   posX2 = posX1 - evt.clientX;
   posX1 = evt.clientX;
   // console.log(posX1)
   // console.log(posX2)
   // itemAdvantageSliderLine.style.transform = `translate3d(${transform - posX2}px, 0px, 0px)`;
   itemAdvantageSliderLine.style.transform = 'translate(transform - posX2 + "px")';
+
 }
-itemAdvantageSliderLine.style.transform = 'translate(0px)';
+itemAdvantageSliderLine.style.transform = 'translate3d(0px, 0px, 0px)';
 
 advSliderBlock.addEventListener('touchstart', swipeStart);
 advSliderBlock.addEventListener('mousedown', swipeStart);
@@ -131,8 +132,12 @@ swipeEnd = function() {
   document.removeEventListener('mouseup', swipeEnd);
   if (Math.abs(posFinal) > posThreshold) {
     if (posInit < posX1) {
+      // console.log(posInit)
+      // console.log(posX1)
       slideIndexS--;
     } else if (posInit > posX1) {
+      // console.log(posInit)
+      // console.log(posX1)
       slideIndexS++;
     }
   }
