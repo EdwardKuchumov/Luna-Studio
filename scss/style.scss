@@ -352,9 +352,11 @@ body{
 }
 .hid{
     
-    transition: all 0.2s;
+    transition: all 1s;
     opacity: 0;
-    height: 0;
+    position: absolute;
+    top: -100%;
+    z-index: -2;
 }
 .footer {
     background: #2E1056;

@@ -880,7 +880,6 @@ label {
   padding: 52px 92px 52px 35px;
 }
 .quest__item {
-  height: 100%;
   align-items: center;
   border-bottom: 1px solid #FFFFFF;
   padding-bottom: 25px;
@@ -889,6 +888,9 @@ label {
 }
 .quest__item:last-child {
   border-bottom: 0px solid #000;
+}
+.quest__text-block {
+  position: relative;
 }
 .quest__text {
   font-weight: 500;
@@ -1639,9 +1641,11 @@ body {
 }
 
 .hid {
-  transition: all 0.2s;
+  transition: all 1s;
   opacity: 0;
-  height: 0;
+  position: absolute;
+  top: -100%;
+  z-index: -2;
 }
 
 .footer {

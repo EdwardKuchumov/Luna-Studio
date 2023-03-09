@@ -58,7 +58,7 @@
     // .quest__item
 
     &__item {
-        height: 100%;
+        
         align-items: center;
         border-bottom: 1px solid #FFFFFF;
         padding-bottom: 25px;
@@ -72,7 +72,7 @@
     // .quest__text-block
 
     &__text-block {
-        
+        position: relative;
     }
 
     // .quest__text
