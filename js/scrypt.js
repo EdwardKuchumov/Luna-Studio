@@ -1,4 +1,5 @@
 // window.onload = () => document.querySelector('header').classList.remove('hidden');
+new Swiper('');
 // --------------------------плавность появления 
 const headBlock = document.querySelector('header');
 const subBlock = document.querySelector('.main__main-page-block');
@@ -18,11 +19,23 @@ text.innerHTML = text.innerText.split("").map((letter, i) =>
 .join("");
 
 //  ----------------------------------------------------------------переключение в слайдере1
-const itemAdvantageSliderLine = document.querySelector('.main__advantage-item-slide');
+const itemAdvantageSliderLine = document.querySelector('.main__advantage-item-slide');/* slider -list*/
 // const itemAdvantageSliderCont = document.querySelector('.main__advantage-flex-block-slide');
-const itemAdvantageAll = document.querySelectorAll('.main__advantage-element-slide');
+const itemAdvantageAll = document.querySelectorAll('.main__advantage-element-slide');/* slide*/
+const advSliderBlock = document.querySelector('.main__advantage-flex-block-slide'); /* slider*/
 
 const itemAdvantageCircle = document.querySelectorAll('.main__advantage-circle');
+
+let slideWidthS
+slideWidthS = itemAdvantageAll[0].offsetWidth;
+console.log(slideWidthS)
+let slideIndexS = 0;
+let posInit = 0;
+let posX1 = 0;
+let posX2 = 0;
+let posFinal = 0;
+let posThreshold = slideWidthS * .35;
+let trfRegExp = /[-0-9.]+(?=px)/;
 
 let slidePosAdv = 0;
 let widthAdv;
@@ -35,6 +48,7 @@ function initRewAdv(){
   itemAdvantageAll.forEach(function(item){
     item.style.width = widthAdv + 'px'
     item.style.height = 'auto'
+    
   })
   rolSliderRewAdv()
 }
@@ -46,9 +60,9 @@ function rolSliderRewAdv(){
   itemAdvantageSliderLine.style.transform = 'translate(-' + slidePosAdv * widthAdv + 'px)';
   itemAdvantageAll.forEach(function(item){
     item.classList.remove('visi')
-
+    // slideWidthS = item[0].offsetWidth
+    // console.log(slideWidthS)
   })
-
 }
 
 // let widthb = document.body.offsetWidth
@@ -64,8 +78,69 @@ itemAdvantageCircle.forEach(function(el, index){
     slidePosAdv = index;
     rolSliderRewAdv()
     thisCircleSlideRewAdv(slidePosAdv)
+    
   })
 })
+
+//-------------------------------------------------------swipe slider 1
+
+slideTestSwipe = function(){
+  itemAdvantageSliderLine.style.transition = 'transform .5s';
+  // itemAdvantageSliderLine.style.transform = `translate3d(-${slideIndexS * slideWidthS}px, 0px, 0px)`;
+  itemAdvantageSliderLine.style.transform = 'translate(-' + slideIndexS * widthAdv + 'px)'
+  
+  thisCircleSlideRewAdv(slideIndexS)
+}
+getEvent = function() {
+  return event.type.search('touch') !== -1 ? event.touches[0] : event;
+}
+swipeStart = function() {
+  let evt = getEvent();
+  posInit = posX1 = evt.clientX;
+  console.log(posInit)
+  itemAdvantageSliderLine.style.transition = '';
+  document.addEventListener('touchmove', swipeAction);
+  document.addEventListener('touchend', swipeEnd);
+  document.addEventListener('mousemove', swipeAction);
+  document.addEventListener('mouseup', swipeEnd);
+}
+swipeAction = function() {
+  let evt = getEvent(),
+    // для более красивой записи возьмем в переменную текущее свойство transform
+    style = itemAdvantageSliderLine.style.transform;
+    // считываем трансформацию с помощью регулярного выражения и сразу превращаем в число
+    transform = +style.match(trfRegExp)[0];
+    console.log(transform)
+  posX2 = posX1 - evt.clientX;
+  posX1 = evt.clientX;
+  // console.log(posX1)
+  // console.log(posX2)
+  // itemAdvantageSliderLine.style.transform = `translate3d(${transform - posX2}px, 0px, 0px)`;
+  itemAdvantageSliderLine.style.transform = 'translate(transform - posX2 + "px")';
+}
+itemAdvantageSliderLine.style.transform = 'translate(0px)';
+
+advSliderBlock.addEventListener('touchstart', swipeStart);
+advSliderBlock.addEventListener('mousedown', swipeStart);
+
+swipeEnd = function() {
+  posFinal = posInit - posX1;
+  document.removeEventListener('touchmove', swipeAction);
+  document.removeEventListener('mousemove', swipeAction);
+  document.removeEventListener('touchend', swipeEnd);
+  document.removeEventListener('mouseup', swipeEnd);
+  if (Math.abs(posFinal) > posThreshold) {
+    if (posInit < posX1) {
+      slideIndexS--;
+    } else if (posInit > posX1) {
+      slideIndexS++;
+    }
+  }
+  if (posInit !== posX1) {
+    slideTestSwipe();
+  }
+};
+
 
 // -------------------------------------------------------------------burger menu
 const burgerMenu = document.querySelector('.burg__burger-burger');
@@ -534,6 +609,59 @@ circleItem.forEach(function(el, index){
   })
 })
 
+
+
+
+
+
+
+
+
+// itemAdvantageSliderLine.addEventListener('touchstart', handleTouchStart, false);
+// itemAdvantageSliderLine.addEventListener('touchmove', handleTouchMove, false);
+
+// let x1 = null;
+// let x2 = null;
+
+// function handleTouchStart(event){
+  
+//   const firstTouch = event.touches[0]
+//   x1 = firstTouch.clientX;
+//   y1 = firstTouch.clientY;
+//   // console.log(x1, y1)
+//   slidePosAdv++
+// }
+// handleTouchStart()
+// function handleTouchMove(event){
+//   if (!x1 || !y1){
+//     return false;
+//   }
+//   let x2 = event.touches[0].clientX;
+//   let y2 = event.touches[0].clientY;
+//   // console.log(x2, y2)
+//   let xDiv = x2 - x1;
+//   let yDiv = y2 - y1;
+
+//   if (Math.abs(xDiv) > Math.abs(yDiv)){
+//     if (xDiv > 0){
+//       console.log('right');
+//       // slidePosAdv = 1;
+      
+//     } else {
+//       console.log('left');
+//       // slidePosAdv = 2;
+//     }
+//   } else {
+//     if (yDiv > 0){
+//       console.log('down');
+//     } else {
+//       console.log('top');
+//     }
+//   }
+//   x1 = null;
+//   x2 = null;
+//   // nextTouchSlide(slidePosAdv)
+// }
 
 // ------------------ ---------------------- ------------------аккордион блока вопросов
 const questItemAll = document.querySelectorAll('.quest__text');
